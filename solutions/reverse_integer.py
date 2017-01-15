@@ -17,6 +17,11 @@ class Solution(object):
         print(solution)
         return solution
 
+    def reverse2(self):
+        s = cmp(x, 0)
+        r = int(`s * x`[::-1])
+        return s * r * (r < 2 ** 31)
+
 
 # Valid: positive
 solution = Solution().reverse(321)
