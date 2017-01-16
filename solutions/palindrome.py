@@ -9,3 +9,25 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
+
+        # O(n), reverse the string
+        reversed = ''
+        for c in x:
+            reversed = c + reversed
+
+        solution = x == reversed
+        print(solution)
+        return solution
+
+
+# Valid: one word
+solution = Solution().isPalindrome("madam")
+assert solution == True
+
+# # Valid: two words
+# solution = Solution().isPalindrome("nurses run")
+# assert solution == True
+#
+# # Invalid: single word
+# solution = Solution().isPalindrome("foo")
+# assert solution == True
