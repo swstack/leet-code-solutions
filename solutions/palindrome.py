@@ -10,12 +10,17 @@ class Solution(object):
         :rtype: bool
         """
 
+        # O(n), remove spaces
+        y = ""
+        for i in x.split(" "):
+            y += i
+
         # O(n), reverse the string
         reversed = ''
-        for c in x:
+        for c in y:
             reversed = c + reversed
 
-        solution = x == reversed
+        solution = y == reversed
         print(solution)
         return solution
 
@@ -24,10 +29,10 @@ class Solution(object):
 solution = Solution().isPalindrome("madam")
 assert solution == True
 
-# # Valid: two words
-# solution = Solution().isPalindrome("nurses run")
-# assert solution == True
-#
-# # Invalid: single word
-# solution = Solution().isPalindrome("foo")
-# assert solution == True
+# Valid: two words
+solution = Solution().isPalindrome("nurses run")
+assert solution == True
+
+# Invalid: single word
+solution = Solution().isPalindrome("foo")
+assert solution == True
