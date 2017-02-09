@@ -1,7 +1,4 @@
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from utils import linked_list as ll
 
 
 class Solution(object):
@@ -18,3 +15,7 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+
+
+head = ll.populate([1, 4, 2, 3, 6, 12, 7])
+ll.print_list(head)
