@@ -9,18 +9,18 @@ class Solution(object):
         if x < 10:
             return -x if negative else x
 
-        reversed = x % 10
+        _reversed = x % 10
         first_digits = int(x / 10)
 
         while first_digits >= 10:
             next_last_digit = first_digits % 10
             first_digits = int(first_digits / 10)
-            reversed = (reversed * 10) + next_last_digit
+            _reversed = (_reversed * 10) + next_last_digit
 
         next_last_digit = first_digits % 10
-        reversed = (reversed * 10) + next_last_digit
+        _reversed = (_reversed * 10) + next_last_digit
 
-        return -reversed if negative else reversed
+        return -_reversed if negative else _reversed
 
     def isPalindrome(self, x):
         """
@@ -33,8 +33,8 @@ class Solution(object):
         :rtype: bool
         """
 
-        reversed = self.reverse_int(x)
-        return reversed == x
+        _reversed = self.reverse_int(x)
+        return _reversed == x
 
 
 assert Solution().reverse_int(1234) == 4321
@@ -58,5 +58,8 @@ assert Solution().isPalindrome(131) is True
 # Valid: duplicates, palindrome
 assert Solution().isPalindrome(11) is True
 
-# Valid: negative
+# Valid: negative, not palindrome
 assert Solution().isPalindrome(-2147483648) is False
+
+# Valid: negative, is palindrome
+assert Solution().isPalindrome(-2147447412) is True
