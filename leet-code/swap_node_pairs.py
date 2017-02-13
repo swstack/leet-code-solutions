@@ -1,4 +1,4 @@
-from utils import linked_list as ll
+from utils.linked_list import LinkedList
 
 
 class Solution(object):
@@ -16,6 +16,36 @@ class Solution(object):
         :rtype: ListNode
         """
 
+        # Save next node
+        _next = head.next
 
-head = ll.populate([1, 4, 2, 3, 6, 12, 7])
-ll.print_list(head)
+        if not _next:
+            return head
+
+        # Check if there is more than 2 nodes, saving the 3rd
+        third_node = _next.next
+
+        # Point the next node back at head
+        _next.next = head
+
+        if third_node:
+            head.next = self.swapPairs(third_node)
+        else:
+            # Erase old pointer
+            head.next = None
+
+        return _next
+
+
+ll = LinkedList.from_array([1, 2, 3])
+ll_swapped = LinkedList(Solution().swapPairs(ll.head))
+print(ll_swapped)
+manually_swapped = LinkedList.from_array([2, 1, 3])
+assert ll_swapped == manually_swapped
+
+
+ll = LinkedList.from_array([1, 2, 3, 4, 5, 6])
+ll_swapped = LinkedList(Solution().swapPairs(ll.head))
+print(ll_swapped)
+manually_swapped = LinkedList.from_array([2, 1, 4, 3, 6, 5])
+assert ll_swapped == manually_swapped
