@@ -1,10 +1,10 @@
-class ListNode(object):
+class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
-class LinkedList(object):
+class LinkedList:
 
     @classmethod
     def from_array(cls, data):
