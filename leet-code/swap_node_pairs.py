@@ -16,11 +16,11 @@ class Solution(object):
         :rtype: ListNode
         """
 
+        if not head or not head.next:
+            return head
+
         # Save next node
         _next = head.next
-
-        if not _next:
-            return head
 
         # Check if there is more than 2 nodes, saving the 3rd
         third_node = _next.next
